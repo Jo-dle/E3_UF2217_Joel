@@ -10,6 +10,9 @@
         <title>Registro de Personal</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css"/>
+
 
       </head>
       <body class="container mt-4">
@@ -44,7 +47,7 @@
             </div>
 
             <div class="table-responsive">
-              <table class="table table-bordered table-striped">
+              <table id="tablaEmpleados" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Código</th>
@@ -74,7 +77,7 @@
           <!-- Tab Consultores -->
           <div class="tab-pane fade" id="consultores" role="tabpanel" aria-labelledby="nav-consultores-tab">
             <div class="table-responsive">
-              <table class="table table-bordered table-striped">
+              <table id="tablaConsultores" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th>Código</th>
@@ -150,7 +153,32 @@
           });
         }
         </script>
+        <!-- Bootstrap y DataTables JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
+        <script>
+        function filtrarPorDepartamento() {
+        const filtro = document.getElementById('filtroDepartamento').value;
+        const filas = document.querySelectorAll('.empleado');
+
+        filas.forEach(fila => {
+            const depto = fila.getAttribute('data-departamento');
+            if (filtro === 'todos' || filtro === depto) {
+                fila.style.display = '';
+            } else {
+                fila.style.display = 'none';
+            }
+        });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+        new DataTable('#tablaEmpleados');
+        new DataTable('#tablaConsultores');
+        });
+        </script>
       </body>
     </html>
   </xsl:template>
