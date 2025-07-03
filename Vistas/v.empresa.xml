@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="../Estilo/e.empresa.xsl"?>
-<registroPersonal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Controladores/c.empresa.xsd">
+<registroPersonal xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+                  xs:Location="../Controladores/registroPersonal.xsd">
 
 <empleados>
 
