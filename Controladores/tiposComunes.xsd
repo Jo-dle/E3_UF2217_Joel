@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           targetNamespace="http://ejemplo.org/tiposComunes"
+           xmlns="http://ejemplo.org/tiposComunes"
+           elementFormDefault="qualified">
+
+  <xs:simpleType name="telefonoType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="emailType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+</xs:schema>

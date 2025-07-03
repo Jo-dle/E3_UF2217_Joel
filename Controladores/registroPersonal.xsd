@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:emp="http://ejemplo.org/empleados"
+           xmlns:con="http://ejemplo.org/consultores"
+           xmlns:dep="http://ejemplo.org/departamentos"
+           targetNamespace="http://ejemplo.org/registroPersonal"
+           xmlns="http://ejemplo.org/registroPersonal"
+           elementFormDefault="qualified">
+
+  <xs:import namespace="http://ejemplo.org/empleados" schemaLocation="empleados.xsd"/>
+  <xs:import namespace="http://ejemplo.org/consultores" schemaLocation="consultores.xsd"/>
+  <xs:import namespace="http://ejemplo.org/departamentos" schemaLocation="departamentos.xsd"/>
+
+  <xs:element name="registroPersonal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="empleados">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="emp:empleado" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="consultores">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="con:consultor" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="departamentos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="dep:departamento" maxOccurs="unbounded"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
